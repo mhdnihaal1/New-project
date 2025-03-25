@@ -10,7 +10,6 @@ import JWTToken from "../../InfrastructureLayer/services/GenerateToken";
 
 
 import { Client, Account, ID } from "appwrite";
-import OtpSession from "../../DomainLayer/OtpSession";
 
 // import IUser from "../../domainLayer/userDomain";
 // import UserModel from "../../infrastructureLayer/database/UserModel";
