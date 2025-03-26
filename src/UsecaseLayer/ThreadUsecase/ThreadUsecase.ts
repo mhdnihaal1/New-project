@@ -51,10 +51,10 @@ class ThreadUsecase {
 }
 
 
-async AddCommentForm( threadId:string , authorId:string , content:string , likes:number , dislikes:number ){
+async AddCommentForm( threadId:string , authorId:string , content:string ){
   try{
 
-    const comment = {threadId , authorId ,content , likes , dislikes}
+    const comment = {threadId , authorId ,content }
 
     const addComment = await this.ThreadRepository.addComment(comment) ;
     return addComment ;

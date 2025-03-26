@@ -50,9 +50,28 @@ const route = express.Router();
 // Integrate AWS S3 or Firebase Storage for secure file handling. 
 // Implement admin approval process before publishing resources. 
 
-route.post("/Registers", (req, res, next) => {
-  // threadController.Register(req, res, next);
+route.post("/fetchResource", (req, res, next) => {
+  resourceController.fetchResource(req, res, next);
 });
+route.post("/AddResource", (req, res, next) => {
+  resourceController.AddResource(req, res, next);
+});
+route.post("/EditResource", (req, res, next) => {
+  resourceController.EditResource(req, res, next);
+});
+route.post("/DeleteResource", (req, res, next) => {
+  resourceController.DeleteResource(req, res, next);
+});
+route.post("/ResourceUpvote", (req, res, next) => {
+  resourceController.ResourceUpvote(req, res, next);
+});
+route.post("/ResourceDownvote", (req, res, next) => {
+  resourceController.ResourceDownvote(req, res, next);
+});
+
+
+
+
 
 // route.use(errorHandle);
  

@@ -2,7 +2,7 @@ import mongoose, { Schema, Document, Model, Types } from "mongoose";
 import AdminRepository from "../../InfrastructureLayer/repository/AdminRepository/AdminRepository";
 import generateOtp from "../../InfrastructureLayer/services/GenerateOtp";
 import EncryptPassword from "../../InfrastructureLayer/services/BcryptPassword";
-// import sendOtp from "../../infrastructureLayer/services/send-email";
+import sendOtp from "../../InfrastructureLayer/services/SendEmail";
 import {AppWriteOtp} from "../../InfrastructureLayer/services/AppWriteOtp";
 // import {account} from "../../InfrastructureLayer/services/AppWriteOtp";
 import JWTToken from "../../InfrastructureLayer/services/GenerateToken";
@@ -20,7 +20,7 @@ class AdminUsecase {
   private EncryptPassword: EncryptPassword;
   private JwtToken: JWTToken;
   private AppWriteOtp: AppWriteOtp;
-//   private generateEmail: sendOtp;
+  private generateEmail: sendOtp;
 
   constructor(
     AdminRepository: AdminRepository,
@@ -28,14 +28,14 @@ class AdminUsecase {
     EncryptPassword: EncryptPassword,
     jwtToken: JWTToken,
     AppWriteOtp:AppWriteOtp,
-    // generateEmail: sendOtp
+    generateEmail: sendOtp
   ) {
     this.AdminRepository = AdminRepository;
     this.generateOtp = generateOtp;
     this.EncryptPassword = EncryptPassword;
     this.JwtToken = jwtToken;
     this.AppWriteOtp = AppWriteOtp;
-    // this.generateEmail = generateEmail;
+    this.generateEmail = generateEmail;
   }
 
 }

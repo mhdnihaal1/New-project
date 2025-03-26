@@ -2,7 +2,7 @@ import mongoose, { Schema, Document, Model, Types } from "mongoose";
 import MembersAndPalliativeRepository from "../../InfrastructureLayer/repository/MembersAndPalliativeRepository/MembersAndPalliativeRepository";
 import generateOtp from "../../InfrastructureLayer/services/GenerateOtp";
 import EncryptPassword from "../../InfrastructureLayer/services/BcryptPassword";
-// import sendOtp from "../../infrastructureLayer/services/send-email";
+import sendOtp from "../../InfrastructureLayer/services/SendEmail";
 import {AppWriteOtp} from "../../InfrastructureLayer/services/AppWriteOtp";
 // import {account} from "../../InfrastructureLayer/services/AppWriteOtp";
 import JWTToken from "../../InfrastructureLayer/services/GenerateToken";
@@ -20,7 +20,7 @@ class MemberAndPalliativeUsecase {
   private EncryptPassword: EncryptPassword;
   private JwtToken: JWTToken;
   private AppWriteOtp: AppWriteOtp;
-//   private generateEmail: sendOtp;
+  private generateEmail: sendOtp;
 
   constructor(
     MembersAndPalliativeRepository: MembersAndPalliativeRepository,
@@ -28,14 +28,14 @@ class MemberAndPalliativeUsecase {
     EncryptPassword: EncryptPassword,
     jwtToken: JWTToken,
     AppWriteOtp:AppWriteOtp,
-    // generateEmail: sendOtp
+    generateEmail: sendOtp
   ) {
     this.MembersAndPalliativeRepository = MembersAndPalliativeRepository;
     this.generateOtp = generateOtp;
     this.EncryptPassword = EncryptPassword;
     this.JwtToken = jwtToken;
     this.AppWriteOtp = AppWriteOtp;
-    // this.generateEmail = generateEmail;
+    this.generateEmail = generateEmail;
   }
 
 }

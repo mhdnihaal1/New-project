@@ -25,10 +25,10 @@ class ThreadController {
   async AddComment(req: Request, res: Response, next: NextFunction){
     try{
 
-      const { threadId , authorId , content , likes , dislikes } = req.body;
+      const { threadId , authorId , content } = req.body;
 
-      const addComment = this.ThreadUsecase.AddCommentForm( threadId , authorId , content , likes , dislikes )
-     
+      const addComment = this.ThreadUsecase.AddCommentForm( threadId , authorId , content )
+      return addComment
       
     }catch(error){
       console.log(error)

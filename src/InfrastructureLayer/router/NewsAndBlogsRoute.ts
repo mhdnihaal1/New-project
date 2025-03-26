@@ -17,14 +17,14 @@ import NewsAndBlogsRepository from "../repository/NewsAndBlogsRepository/NewsAnd
 //services import
 import GenerateOtp from "../services/GenerateOtp";
 import EncryptPassword from "../services/BcryptPassword";
-// import GenerateEmail from "../services/send-email";
+import GenerateEmail from "../services/SendEmail";
 import {AppWriteOtp} from "../services/AppWriteOtp";
 import JWTToken from "../services/GenerateToken";
  
 //services
 const generateOtp = new GenerateOtp();
 const encryptPassword = new EncryptPassword();
-// const generateEmail = new GenerateEmail();
+const generateEmail = new GenerateEmail();
 const jwtToken = new JWTToken();
 const appWriteOtp = new AppWriteOtp()
 
@@ -38,11 +38,11 @@ const newsAndBlogsUsecase = new NewsAndBlogsUsecase(
   encryptPassword,
   jwtToken,
   appWriteOtp,
-//   generateEmail
+  generateEmail
 );
 
 //controllers
-const newsAndBlogsController = new NewsAndBlogsController(newsAndBlogsUsecase);
+const newsAndblogsController = new NewsAndBlogsController(newsAndBlogsUsecase);
 
 const route = express.Router();
 
@@ -51,17 +51,27 @@ const route = express.Router();
 // Enable commenting and likes/dislikes on blogs.  
 
 route.post("/FetchNewsAndBlogs", (req, res, next) => {
-  // threadController.Register(req, res, next);
+  newsAndblogsController.FetchNewsAndBlogs(req, res, next);
 });
 route.post("/AddNewsAndBlogs", (req, res, next) => {
-  // threadController.Register(req, res, next);
+  newsAndblogsController.AddNewsAndBlogs(req, res, next);
 });
 route.post("/EditNewsAndBlogs", (req, res, next) => {
-  // threadController.Register(req, res, next);
+  newsAndblogsController.EditNewsAndBlogs(req, res, next);
 });
 route.post("/DeleteNewsAndBlogs", (req, res, next) => {
-  // threadController.Register(req, res, next);
+  newsAndblogsController.DeleteNewsAndBlogs(req, res, next);
 });
+route.post("/NewsAndBlogsUpvote", (req, res, next) => {
+  newsAndblogsController.NewsAndBlogsUpvote(req, res, next);
+});
+route.post("/NewsAndBlogsDownvote", (req, res, next) => {
+  newsAndblogsController.NewsAndBlogsDownvote(req, res, next);
+});
+
+
+
+
 
 // route.use(errorHandle);
  

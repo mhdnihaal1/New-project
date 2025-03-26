@@ -2,7 +2,7 @@ import mongoose, { Schema, Document, Model, Types } from "mongoose";
 import NewsAndBlogsRepository from "../../InfrastructureLayer/repository/NewsAndBlogsRepository/NewsAndBlogsRepository";
 import generateOtp from "../../InfrastructureLayer/services/GenerateOtp";
 import EncryptPassword from "../../InfrastructureLayer/services/BcryptPassword";
-// import sendOtp from "../../infrastructureLayer/services/send-email";
+import sendOtp from "../../InfrastructureLayer/services/SendEmail";
 import {AppWriteOtp} from "../../InfrastructureLayer/services/AppWriteOtp";
 import {account} from "../../InfrastructureLayer/services/AppWriteOtp";
 import JWTToken from "../../InfrastructureLayer/services/GenerateToken";
@@ -19,7 +19,7 @@ class NewsAndBlogsUsecase {
   private EncryptPassword: EncryptPassword;
   private JwtToken: JWTToken;
   private AppWriteOtp: AppWriteOtp;
-//   private generateEmail: sendOtp;
+  private generateEmail: sendOtp;
 
   constructor(
     NewsAndBlogsRepository: NewsAndBlogsRepository,
@@ -27,14 +27,14 @@ class NewsAndBlogsUsecase {
     EncryptPassword: EncryptPassword,
     jwtToken: JWTToken,
     AppWriteOtp:AppWriteOtp,
-    // generateEmail: sendOtp
+    generateEmail: sendOtp
   ) {
     this.NewsAndBlogsRepository = NewsAndBlogsRepository;
     this.generateOtp = generateOtp;
     this.EncryptPassword = EncryptPassword;
     this.JwtToken = jwtToken;
     this.AppWriteOtp = AppWriteOtp;
-    // this.generateEmail = generateEmail;
+    this.generateEmail = generateEmail;
   }
 
 }

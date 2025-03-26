@@ -8,6 +8,55 @@ class NewsAndBlogsController {
     this.NewsAndBlogsUsecase = NewsAndBlogsUsecase;
   }
 
+
+  async FetchNewsAndBlogs(req: Request, res: Response, next: NextFunction){
+    try{
+      
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  async AddNewsAndBlogs(req: Request, res: Response, next: NextFunction){
+    try{
+      
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  async EditNewsAndBlogs(req: Request, res: Response, next: NextFunction){
+    try{
+      
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  async DeleteNewsAndBlogs(req: Request, res: Response, next: NextFunction){
+    try{
+      
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  async NewsAndBlogsUpvote(req: Request, res: Response, next: NextFunction){
+    try{
+      
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  async NewsAndBlogsDownvote(req: Request, res: Response, next: NextFunction){
+    try{
+      
+    }catch(error){
+      console.log(error)
+    }
+  }
+
 }
 
 export default NewsAndBlogsController;
