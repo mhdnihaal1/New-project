@@ -139,6 +139,8 @@ async ThreadShares(req: Request, res: Response, next: NextFunction){
 
     const shareThread = await this.ThreadUsecase.ThreadSharesForm(threadId , shares )
 
+    return shareThread;
+
   }catch(error){
     console.log(error)
   }

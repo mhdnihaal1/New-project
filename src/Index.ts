@@ -5,8 +5,7 @@ const PORT = process.env.MYPORT || 3000;
 
 const startServer = async (): Promise<void> => {
   await connectDB();
-  const app = httpServer;
-  app.listen( process.env.MYPORT, () => {
+  httpServer.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
 };

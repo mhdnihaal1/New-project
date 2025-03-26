@@ -3,7 +3,7 @@ import ResourceRepository from "../../InfrastructureLayer/repository/ResourceRep
 import IUser from "../../DomainLayer/UserDomain";
 import generateOtp from "../../InfrastructureLayer/services/GenerateOtp";
 import EncryptPassword from "../../InfrastructureLayer/services/BcryptPassword";
-// import sendOtp from "../../infrastructureLayer/services/send-email";
+import sendOtp from "../../InfrastructureLayer/services/SendEmail";
 import {AppWriteOtp} from "../../InfrastructureLayer/services/AppWriteOtp";
 import {account} from "../../InfrastructureLayer/services/AppWriteOtp";
 import JWTToken from "../../InfrastructureLayer/services/GenerateToken";
@@ -20,7 +20,7 @@ class ResourceUsecase {
   private EncryptPassword: EncryptPassword;
   private JwtToken: JWTToken;
   private AppWriteOtp: AppWriteOtp;
-//   private generateEmail: sendOtp;
+  private generateEmail: sendOtp;
 
   constructor(
     ResourceRepository: ResourceRepository,
@@ -28,14 +28,14 @@ class ResourceUsecase {
     EncryptPassword: EncryptPassword,
     jwtToken: JWTToken,
     AppWriteOtp:AppWriteOtp,
-    // generateEmail: sendOtp
+    generateEmail: sendOtp
   ) {
     this.ResourceRepository = ResourceRepository;
     this.generateOtp = generateOtp;
     this.EncryptPassword = EncryptPassword;
     this.JwtToken = jwtToken;
     this.AppWriteOtp = AppWriteOtp;
-    // this.generateEmail = generateEmail;
+    this.generateEmail = generateEmail;
   }
 
 }

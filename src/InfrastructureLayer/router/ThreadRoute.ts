@@ -17,14 +17,14 @@ import ThreadRepository from "../repository/ThreadRepository/ThreadRepository";
 //services import
 import GenerateOtp from "../services/GenerateOtp";
 import EncryptPassword from "../services/BcryptPassword";
-// import GenerateEmail from "../services/send-email";
+import SendEmail from "../services/SendEmail";
 import {AppWriteOtp} from "../services/AppWriteOtp";
 import JWTToken from "../services/GenerateToken";
  
 //services
 const generateOtp = new GenerateOtp();
 const encryptPassword = new EncryptPassword();
-// const generateEmail = new GenerateEmail();
+const sendEmail = new SendEmail();
 const jwtToken = new JWTToken();
 const appWriteOtp = new AppWriteOtp()
 
@@ -38,7 +38,7 @@ const threadUsecase = new ThreadUsecase(
   encryptPassword,
   jwtToken,
   appWriteOtp,
-//   generateEmail
+  sendEmail
 );
 
 //controllers
