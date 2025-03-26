@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    const  mongo_uri =
-           process.env.MONGODB_URI;
+    // const  mongo_uri =
+    //        process.env.MONGODB_URI;
 
-    if (mongo_uri) {
-         await mongoose.connect(mongo_uri);
+    if (process.env.MONGODB_URI) {
+         await mongoose.connect(process.env.MONGODB_URI);
     }
 
   } catch (error) {

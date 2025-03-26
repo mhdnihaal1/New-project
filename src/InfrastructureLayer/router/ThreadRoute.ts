@@ -104,6 +104,12 @@ route.post("/ThreadSearch", (req, res, next) => {
 //   threadController.ThreadFilter(req, res, next);
 // });
 
+// route.post("/Real-time-replies", (req, res, next) => {
+//   threadController.Real-time-replies(req, res, next);
+// });
+
+
+
 // route.use(errorHandle);
  
 

@@ -13,7 +13,7 @@ interface IUser {
     medicalRegistrationNumber: string;
     affiliatedPalliativeAssociations: string;
     specialInterestsInPalliativeCare: string;
-    role: 'user' | 'admin';
+    role: string ;
     password: string; 
     registrationStatus: 'pending' | 'approved' | 'rejected';
     createdAt?: Date;

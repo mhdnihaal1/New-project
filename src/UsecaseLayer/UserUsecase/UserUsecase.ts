@@ -89,8 +89,7 @@ class UserUsecase {
           },
         };
       }
-      const validRole: "user" | "admin" =
-        role === "user" || role === "admin" ? role : "user";
+      const validRole = "user" ;
 
       const validStatus: "pending" | "approved" | "rejected" =
         registrationStatus === "pending" ||
@@ -124,7 +123,7 @@ class UserUsecase {
 
       return {
         status: 200,
-        message: "User created successfully.",
+        message: "User send to  admin and created successfully.",
         data: newUser,
       };
     } catch (error) {
@@ -132,64 +131,64 @@ class UserUsecase {
     }
   }
 
-  async loginForm(phoneNumber: string) {
-    try {
-      const findUserByNumber =
-        await this.UserRepository.findUserByNumber(phoneNumber);
+  // async loginForm(phoneNumber: string) {
+  //   try {
+  //     const findUserByNumber =
+  //       await this.UserRepository.findUserByNumber(phoneNumber);
 
-      if (
-        findUserByNumber &&
-        findUserByNumber?.registrationStatus == "pending"
-      ) {
-        console.log(1);
-        return {
-          success: false,
-          status: 409,
-          data: {
-            message: "Admin didn't accept request yet.",
-          },
-        };
-      } else if (
-        findUserByNumber &&
-        findUserByNumber?.registrationStatus == "rejected"
-      ) {
-        console.log(1);
+  //     if (
+  //       findUserByNumber &&
+  //       findUserByNumber?.registrationStatus == "pending"
+  //     ) {
+  //       console.log(1);
+  //       return {
+  //         success: false,
+  //         status: 409,
+  //         data: {
+  //           message: "Admin didn't accept request yet.",
+  //         },
+  //       };
+  //     } else if (
+  //       findUserByNumber &&
+  //       findUserByNumber?.registrationStatus == "rejected"
+  //     ) {
+  //       console.log(1);
 
-        return {
-          success: false,
-          status: 409,
-          data: {
-            message: "Admin rejected your request !",
-          },
-        };
-      } else if (findUserByNumber) {
-        console.log(12);
+  //       return {
+  //         success: false,
+  //         status: 409,
+  //         data: {
+  //           message: "Admin rejected your request !",
+  //         },
+  //       };
+  //     } else if (findUserByNumber) {
+  //       console.log(12);
 
-        const otpSession = await this.AppWriteOtp.sendOTP(phoneNumber);
+  //       const otpSession = await this.AppWriteOtp.sendOTP(phoneNumber);
 
-        return {
-          success: true,
-          status: 200,
-          data: {
-            message: otpSession,
-          },
-        };
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //       return {
+  //         success: true,
+  //         status: 200,
+  //         data: {
+  //           message: otpSession,
+  //         },
+  //       };
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  async verifyForm(userId: string, verificationCode: string) {
-    try {
-      const session = await account.createSession(userId, verificationCode);
+  // async verifyForm(userId: string, verificationCode: string) {
+  //   try {
+  //     const session = await account.createSession(userId, verificationCode);
 
-      console.log("last session  ", session);
-      return session;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     console.log("last session  ", session);
+  //     return session;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   async resetORforgotPasswordForm(email: string) {
     try {

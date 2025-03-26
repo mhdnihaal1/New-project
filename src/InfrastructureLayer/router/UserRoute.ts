@@ -52,13 +52,17 @@ route.post("/Register", (req, res, next) => {
     userController.Register(req, res, next);
   });
 
-route.post("/Login", (req, res, next) => {
-    userController.Login(req, res, next);
-  });
+// route.post("/Login", (req, res, next) => {
+//     userController.Login(req, res, next);
+//   });
 
-  route.post("/Verify", (req, res, next) => {
-    userController.Verify(req, res, next);
-  });
+//   route.post("/Verify", (req, res, next) => {
+//     userController.Verify(req, res, next);
+//   });
+
+//   route.post("/Logout", (req, res, next) => {
+//     userController.Logout(req, res, next);
+//   });
 
   route.post("/ResetORForgotPassword", (req, res, next) => {
     userController.ResetORForgotPassword(req, res, next);

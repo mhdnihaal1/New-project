@@ -84,68 +84,68 @@ class UserController {
   }
 
   
-  async Login(req: Request, res: Response, next: NextFunction) {
-  try {
+  // async Login(req: Request, res: Response, next: NextFunction) {
+  // try {
 
-      const { phoneNumber } = req.body;
+  //     const { phoneNumber } = req.body;
 
-      const otpSession  = await this.UserUsecase.loginForm( phoneNumber)
-      console.log('oncontroller',otpSession)
-    //   const userid = otpSession?.data?.message?.userId;
+  //     const otpSession  = await this.UserUsecase.loginForm( phoneNumber)
+  //     console.log('oncontroller',otpSession)
+  //   //   const userid = otpSession?.data?.message?.userId;
 
       
-    //   console.log(userId)
-    //   return null
-    //   if (otpSession?.userId) {
-    //     // req.session.otpUserId = otpSession.userId;
-    // } else {
-    //     return {
-    //         success: false,
-    //         status: 500,
-    //         data: {
-    //             message: "Failed to generate OTP.",
-    //         },
-    //     };
-    // }
+  //   //   console.log(userId)
+  //   //   return null
+  //   //   if (otpSession?.userId) {
+  //   //     // req.session.otpUserId = otpSession.userId;
+  //   // } else {
+  //   //     return {
+  //   //         success: false,
+  //   //         status: 500,
+  //   //         data: {
+  //   //             message: "Failed to generate OTP.",
+  //   //         },
+  //   //     };
+  //   // }
 
-      return res.json({
-        status: otpSession?.status,
-        data: otpSession?.data,
-      });
+  //     return res.json({
+  //       status: otpSession?.status,
+  //       data: otpSession?.data,
+  //     });
 
-  }catch(error){
-    console.log(error)
-  }
-  }
+  // }catch(error){
+  //   console.log(error)
+  // }
+  // }
 
 
-  async Verify(req: Request, res: Response, next: NextFunction) {
-    try {
+  // async Verify(req: Request, res: Response, next: NextFunction) {
+  //   try {
   
-        const { userId , verificationCode } = req.body;
+  //       const { userId , verificationCode } = req.body;
   
-        const otpSession = await this.UserUsecase.verifyForm(  userId , verificationCode )
-          if (otpSession?.userId) {
-                      // req.session.otp = otpSession.userId;
-                  } else {
-                      return {
-                          success: false,
-                          status: 500,
-                          data: {
-                              message: "Failed to generate OTP.",
-                          },
-                      };
-                  }
+  //       const otpSession = await this.UserUsecase.verifyForm(  userId , verificationCode )
+  //         if (otpSession?.userId) {
+  //                     // req.session.otp = otpSession.userId;
+  //                 } else {
+  //                     return {
+  //                         success: false,
+  //                         status: 500,
+  //                         data: {
+  //                             message: "Failed to generate OTP.",
+  //                         },
+  //                     };
+  //                 }
   
-        // return res.json({
-        //   status: otpSession?.status,
-        //   data: otpSession?.data,
-        // });
+  //       // return res.json({
+  //       //   status: otpSession?.status,
+  //       //   data: otpSession?.data,
+  //       // });
   
-    }catch(error){
-      console.log(error)
-    }
-    }
+  //   }catch(error){
+  //     console.log(error)
+  //   }
+  //   }
 
     async ResetORForgotPassword(req:Request , res:Response , next: NextFunction){
       try{
